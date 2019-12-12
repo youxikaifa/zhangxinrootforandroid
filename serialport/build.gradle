@@ -75,7 +75,7 @@ publish {
     artifactId = 'serialport'   //项目名称
     publishVersion = '1.0.0'//版本号
     desc = '串口工具库'//描述，自由填写
-    website = 'https://github.com/youxikaifa/zhangxinrootforandroid/serialport' // 网址，自由填写
+    website = 'https://github.com/youxikaifa/zhangxinrootforandroid' // 网址，自由填写
 }
 
 dependencies {
