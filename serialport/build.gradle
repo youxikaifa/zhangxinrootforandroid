@@ -1,4 +1,4 @@
-apply plugin: 'bintray-release'
+//apply plugin: 'bintray-release'
 apply plugin: 'com.android.library'
 
 // 这个version是区分library版本的，因此当我们需要更新library时记得修改这个version
@@ -50,33 +50,33 @@ android {
 
 }
 
-task makeJar(type: Copy) {
-//删除存在的
-    delete 'build/libs/test.jar'
-//设置拷贝的文件
-    from('build/intermediates/packaged-classes/release/')
-//打进jar包后的文件目录
-    into('build/libs/')
-//将classes.jar放入build/libs/目录下
-//include ,exclude参数来设置过滤
-//（我们只关心classes.jar这个文件）
-    include('classes.jar')
-//重命名
-    rename ('classes.jar','serialport.jar')
-}
-
-makeJar.dependsOn(build)
-
-// 新增
-publish {
-    userOrg = 'che'        //bintray.com用户名
-    groupId = 'com.zhangxin'    //jcenter上的路径
-    repoName = 'lotlib'     //仓库名字
-    artifactId = 'serialport'   //项目名称
-    publishVersion = '1.0.0'//版本号
-    desc = '串口工具库'//描述，自由填写
-    website = 'https://github.com/youxikaifa/zhangxinrootforandroid' // 网址，自由填写
-}
+//task makeJar(type: Copy) {
+////删除存在的
+//    delete 'build/libs/test.jar'
+////设置拷贝的文件
+//    from('build/intermediates/packaged-classes/release/')
+////打进jar包后的文件目录
+//    into('build/libs/')
+////将classes.jar放入build/libs/目录下
+////include ,exclude参数来设置过滤
+////（我们只关心classes.jar这个文件）
+//    include('classes.jar')
+////重命名
+//    rename ('classes.jar','serialport.jar')
+//}
+//
+//makeJar.dependsOn(build)
+//
+//// 新增
+//publish {
+//    userOrg = 'che'        //bintray.com用户名
+//    groupId = 'com.zhangxin'    //jcenter上的路径
+//    repoName = 'lotlib'     //仓库名字
+//    artifactId = 'serialport'   //项目名称
+//    publishVersion = '1.0.0'//版本号
+//    desc = '串口工具库'//描述，自由填写
+//    website = 'https://github.com/youxikaifa/zhangxinrootforandroid' // 网址，自由填写
+//}
 
 dependencies {
     api fileTree(dir: 'libs', include: ['*.jar'])
